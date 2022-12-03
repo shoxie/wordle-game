@@ -1,6 +1,6 @@
 import { Box, Button, HStack, VStack, Center } from "@chakra-ui/react";
 import Key from "../Key";
-import type { Row } from "..";
+import type { Row } from "@/types";
 import { useMemo } from "react";
 import { FiDelete } from "react-icons/fi";
 

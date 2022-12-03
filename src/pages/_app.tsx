@@ -70,7 +70,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 },
                 images: [
                   {
-                    url: "https://https://wordie-game.vercel.app/static/images/socialbanner.png",
+                    url: "https://wordie-game.vercel.app/static/images/socialbanner.png",
                     alt: "Banner",
                   },
                 ],

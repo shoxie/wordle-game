@@ -30,9 +30,9 @@ export default function GameResultModal({
   const [isOpen, setIsOpen] = useState(true);
   const [countdown, setCountdown] = useState("");
 
-    useEffect(() => {
-      setIsOpen(gameState !== "playing");
-    }, []);
+  useEffect(() => {
+    setIsOpen(gameState !== "playing");
+  }, []);
 
   useEffect(() => {
     let interval: NodeJS.Timer;

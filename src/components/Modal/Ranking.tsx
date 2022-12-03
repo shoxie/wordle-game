@@ -19,7 +19,7 @@ import { userAtom } from "@/lib/atoms";
 import { BsBarChartLineFill } from "react-icons/bs";
 
 export default function RankingModal() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const { data } = useQuery<User[]>(["ranking"], () => getRanking());
   const [localUser] = useAtom(userAtom);
   return (

@@ -6,7 +6,7 @@ import SettingModal from "../Modal/SettingModal";
 import { useColorMode } from "@chakra-ui/react";
 import GuideModal from "../Modal/GuideModal";
 import { useAtom } from "jotai";
-import { headerHeightAtom } from "@/app/atoms";
+import { headerHeightAtom } from "@/lib/atoms";
 
 export default function Header() {
   const headerContainer = useRef<HTMLDivElement>(null)

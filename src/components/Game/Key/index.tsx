@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, Center } from "@chakra-ui/react";
 
 enum Statuses {
   "absent",
@@ -11,13 +11,14 @@ type CharStatus = keyof typeof Statuses;
 
 type Props = {
   value: string;
-  onLetterClick: (letter: string) => void;
+  onLetterClick?: (letter: string) => void;
   status: CharStatus;
+  type: "keyboard" | "cell";
 };
 
-export default function Key({ value, status, onLetterClick }: Props) {
+export default function Key({ value, status, onLetterClick, type }: Props) {
   function handleOnLetterClick() {
-    onLetterClick(value);
+    if (onLetterClick) onLetterClick(value);
   }
 
   return (
@@ -42,13 +43,36 @@ export default function Key({ value, status, onLetterClick }: Props) {
           : "white"
       }
       onClick={handleOnLetterClick}
-      p={5}
-      px={6}
+      w={
+        type === "keyboard"
+          ? {
+            base: 6,
+              sm: 10,
+              lg: 16,
+            }
+          : 14
+      }
+      h={
+        type === "keyboard"
+          ? {
+            base: 6,
+              sm: 10,
+              lg: 16,
+            }
+          : 14
+      }
       rounded="sm"
+      transition="all"
+      transitionDuration="500ms"
     >
-      <Text fontWeight={"bold"} fontSize={"xl"}>
-        {value}
-      </Text>
+      <Center h="full">
+        <Text fontWeight={"bold"} fontSize={{
+          base: "xs",
+          lg: "xl"
+        }}>
+          {value}
+        </Text>
+      </Center>
     </Box>
   );
 }

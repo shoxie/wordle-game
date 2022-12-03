@@ -19,7 +19,7 @@ import { InfoIcon } from "@chakra-ui/icons";
 import Key from "../Game/Key";
 
 export default function GuideModal() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <>
@@ -52,26 +52,31 @@ export default function GuideModal() {
                   value={"A"}
                   onLetterClick={(letter) => console.log(letter)}
                   status={"correct"}
+                  type="cell"
                 />
                 <Key
                   value={"N"}
                   onLetterClick={(letter) => console.log(letter)}
                   status={"guessing"}
+                  type="cell"
                 />
                 <Key
                   value={"G"}
                   onLetterClick={(letter) => console.log(letter)}
                   status={"guessing"}
+                  type="cell"
                 />
                 <Key
                   value={"R"}
                   onLetterClick={(letter) => console.log(letter)}
                   status={"guessing"}
+                  type="cell"
                 />
                 <Key
                   value={"Y"}
                   onLetterClick={(letter) => console.log(letter)}
                   status={"guessing"}
+                  type="cell"
                 />
               </HStack>
               <Text textAlign={"center"}>The letter A is in the word and in the correct spot.</Text>
@@ -82,26 +87,31 @@ export default function GuideModal() {
                   value={"W"}
                   onLetterClick={(letter) => console.log(letter)}
                   status={"guessing"}
+                  type="cell"
                 />
                 <Key
                   value={"O"}
                   onLetterClick={(letter) => console.log(letter)}
                   status={"guessing"}
+                  type="cell"
                 />
                 <Key
                   value={"R"}
                   onLetterClick={(letter) => console.log(letter)}
                   status={"present"}
+                  type="cell"
                 />
                 <Key
                   value={"D"}
                   onLetterClick={(letter) => console.log(letter)}
                   status={"guessing"}
+                  type="cell"
                 />
                 <Key
                   value={"S"}
                   onLetterClick={(letter) => console.log(letter)}
                   status={"guessing"}
+                  type="cell"
                 />
               </HStack>
               <Text textAlign={"center"}>The letter R is in the word but in the wrong spot.</Text>
@@ -112,26 +122,31 @@ export default function GuideModal() {
                   value={"V"}
                   onLetterClick={(letter) => console.log(letter)}
                   status={"guessing"}
+                  type="cell"
                 />
                 <Key
                   value={"A"}
                   onLetterClick={(letter) => console.log(letter)}
                   status={"guessing"}
+                  type="cell"
                 />
                 <Key
                   value={"L"}
                   onLetterClick={(letter) => console.log(letter)}
                   status={"guessing"}
+                  type="cell"
                 />
                 <Key
                   value={"U"}
                   onLetterClick={(letter) => console.log(letter)}
                   status={"guessing"}
+                  type="cell"
                 />
                 <Key
                   value={"E"}
                   onLetterClick={(letter) => console.log(letter)}
                   status={"absent"}
+                  type="cell"
                 />
               </HStack>
               <Text textAlign={"center"}>The letter E is not in the word in any spot.</Text>

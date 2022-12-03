@@ -1,7 +1,8 @@
 import React from "react";
 import Header from "./Header";
 import { useAtom } from "jotai";
-import { headerHeightAtom } from "@/app/atoms";
+import { headerHeightAtom } from "@/lib/atoms";
+import { Box } from "@chakra-ui/react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [headerHeight] = useAtom(headerHeightAtom);
@@ -9,13 +10,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
-      <main
+      <Box as={"main"}
+      transition="all"
+      transitionDuration="500ms"
         style={{
           height: `calc(100vh - ${headerHeight}px)`,
         }}
       >
         {children}
-      </main>
+      </Box>
     </>
   );
 }

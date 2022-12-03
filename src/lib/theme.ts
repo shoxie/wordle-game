@@ -6,9 +6,15 @@ const styles = {
     body: {
       color: mode("#575279", "#e0def4")(props),
       bg: mode("#faf4ed", "#232136")(props),
+      transitionProperty: "background-color",
+      transitionDuration: "500ms"
     },
   }),
 };
+
+const config = {
+  disableTransitionOnChange: false
+}
 
 const components = {
   Drawer: {
@@ -31,6 +37,7 @@ const components = {
 const theme = extendTheme({
   components,
   styles,
+  config
 });
 
 export default theme;

@@ -13,8 +13,14 @@ export enum Statuses {
 export type CharStatus = keyof typeof Statuses;
 
 interface Cell {
-    value: string;
-    status: CharStatus;
-  }
-  
-  export type Row = Cell[];
+  value: string;
+  status: CharStatus;
+}
+
+export type Row = Cell[];
+
+export type User = {
+  id: string
+  solved: number
+  name: string
+}

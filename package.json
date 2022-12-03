@@ -16,9 +16,11 @@
     "@chakra-ui/theme-tools": "^2.0.13",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@prisma/client": "^4.7.1",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
+    "axios": "^1.2.0",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
     "framer-motion": "^7.6.7",
@@ -29,10 +31,12 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.7.1",
+    "react-query": "^3.39.2",
     "typescript": "4.9.3",
     "word-exists": "^1.0.0"
   },
   "devDependencies": {
-    "@types/random-seed": "^0.3.3"
+    "@types/random-seed": "^0.3.3",
+    "prisma": "^4.7.1"
   }
 }

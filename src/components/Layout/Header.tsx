@@ -7,6 +7,7 @@ import { useColorMode } from "@chakra-ui/react";
 import GuideModal from "../Modal/GuideModal";
 import { useAtom } from "jotai";
 import { headerHeightAtom } from "@/lib/atoms";
+import RankingModal from "../Modal/Ranking";
 
 export default function Header() {
   const headerContainer = useRef<HTMLDivElement>(null)
@@ -25,6 +26,7 @@ export default function Header() {
           <Text fontSize="2xl" fontWeight="bold">Wordie</Text>
         </Box>
         <HStack>
+        <RankingModal/>
           <SettingModal />
         </HStack>
       </HStack>

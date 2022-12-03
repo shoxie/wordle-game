@@ -1,17 +1,26 @@
 import "../styles/globals.css";
-import type { AppProps } from "next/app";
-import { ChakraProvider } from "@chakra-ui/react";
-import { SettingsProvider } from "@/context";
-import theme from "../lib/theme";
 import Layout from "@/components/Layout";
+import { SettingsProvider } from "@/context";
+import { ChakraProvider } from "@chakra-ui/react";
 import { DefaultSeo } from "next-seo";
+import type { AppProps } from "next/app";
+import theme from "../lib/theme";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from "react-query";
+const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <SettingsProvider>
-        <Layout>
-        <DefaultSeo
+        <QueryClientProvider client={queryClient} contextSharing>
+          <Layout>
+            <DefaultSeo
               defaultTitle="Wordle Game"
               titleTemplate={`%s - Wordle Game`}
               description="A word guessing game."
@@ -76,8 +85,9 @@ export default function App({ Component, pageProps }: AppProps) {
                 ],
               }}
             />
-          <Component {...pageProps} />
-        </Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </QueryClientProvider>
       </SettingsProvider>
     </ChakraProvider>
   );

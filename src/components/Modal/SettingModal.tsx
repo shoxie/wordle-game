@@ -12,21 +12,44 @@ import {
   Box,
   Text,
   useColorMode,
+  Input,
 } from "@chakra-ui/react";
 import { useSetting } from "@/context";
 import { useEffect, useState } from "react";
 import { SettingsIcon } from "@chakra-ui/icons";
 import { Switch } from "@chakra-ui/react";
+import { useAtom } from "jotai";
+import { userAtom } from "@/lib/atoms";
+import useDebounce from "@/lib/useDebounce";
+import { useMutation } from "react-query";
+import axios from "axios";
 
 export default function SettingModal() {
   const { isHard, setEasyMode, setHardMode } = useSetting();
   const { toggleColorMode, colorMode } = useColorMode();
   const [isOpen, setIsOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [user] = useAtom(userAtom);
+  const debounceName = useDebounce(name, 600)
+
+  const mutation = useMutation(() => {
+    return axios.post(`/api/user/${user?.id}`, { name: debounceName})
+  })
 
   function handleGameModeChange() {
     isHard ? setEasyMode() : setHardMode();
   }
-  
+
+  useEffect(() => {
+    if (!user) return;
+    setName(user.name);
+  }, []);
+
+  useEffect(() => {
+    if (!user) return;
+    mutation.mutate()
+  }, [debounceName]);
+
   return (
     <>
       <SettingsIcon
@@ -82,6 +105,18 @@ export default function SettingModal() {
                 onChange={handleGameModeChange}
                 size={"md"}
               />
+            </FormControl>
+            <FormControl
+              display="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              borderBottom={"1px"}
+              py={3}
+            >
+              <FormLabel htmlFor="hard-mode-switch" mb="0" w="full">
+                Your name
+              </FormLabel>
+              <Input value={name} onChange={(e) => setName(e.target.value)} />
             </FormControl>
           </ModalBody>
         </ModalContent>

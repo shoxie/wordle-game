@@ -23,6 +23,7 @@ specifiers:
   react-dom: 18.2.0
   react-icons: ^4.7.1
   typescript: 4.9.3
+  word-exists: ^1.0.0
 
 dependencies:
   '@chakra-ui/anatomy': 2.1.0
@@ -46,6 +47,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.7.1_react@18.2.0
   typescript: 4.9.3
+  word-exists: 1.0.0
 
 devDependencies:
   '@types/random-seed': 0.3.3
@@ -3642,6 +3644,10 @@ packages:
     hasBin: true
     dependencies:
       isexe: 2.0.0
+    dev: false
+
+  /word-exists/1.0.0:
+    resolution: {integrity: sha512-uvBrbg1bjPzist7dMwRLuOn4TZojTOUgocFFbRft+RPGZuFpzuNO32PXHIKOPFKeocItfCPCkw/Nic09fKqOSA==}
     dev: false
 
   /word-wrap/1.2.3:

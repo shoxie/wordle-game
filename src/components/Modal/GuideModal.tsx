@@ -1,27 +1,26 @@
+import { useUser } from "@/lib/useUser";
+import { InfoIcon } from "@chakra-ui/icons";
 import {
+  Box,
+  Center,
+  Highlight,
+  HStack,
+  Link,
   Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
-  Button,
-  FormControl,
-  FormLabel,
-  Box,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   Text,
-  useColorMode,
-  HStack,
-  Center,
-  Link,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { InfoIcon } from "@chakra-ui/icons";
+import { useState } from "react";
 import Key from "../Game/Key";
 
 export default function GuideModal() {
   const [isOpen, setIsOpen] = useState(true);
+  const user = useUser();
 
   return (
     <>
@@ -44,8 +43,16 @@ export default function GuideModal() {
           <ModalBody>
             <Box py={3}>
               <Text>
-                Guess the word in 6 tries. After each guess, the color of the
-                tiles will change to show how close your guess was to the word.
+                Welcome,{" "}
+                <Highlight
+                  query={"spotlight"}
+                  styles={{ px: "2", py: "1", rounded: "full", bg: "red.100" }}
+                >
+                  {user.name.length > 0 ? user.name : "Stranger"}
+                </Highlight>
+                . Play the game by guessing the word in 6 tries. After each
+                guess, the color of the tiles will change to show how close your
+                guess was to the word.
               </Text>
             </Box>
             <Box py={3}>
@@ -160,8 +167,13 @@ export default function GuideModal() {
               </Text>
             </Box>
           </ModalBody>
-          <ModalFooter>
-            <Center w="full">
+          <ModalFooter
+            display="flex"
+            flexDirection={"column"}
+            alignContent="center"
+            justifyContent={"center"}
+          >
+            <Box>
               <Text>
                 This project is open-source. Find the code{" "}
                 <Link
@@ -172,7 +184,21 @@ export default function GuideModal() {
                   here
                 </Link>
               </Text>
-            </Center>
+            </Box>
+            <Box>
+              <Text>
+                I&apos;m also owner of{" "}
+                <Link
+                  href="https://wrosedev.tech/"
+                  textDecoration={"underline"}
+                  fontWeight={"bold"}
+                >
+                  this
+                </Link>{" "}
+                blog. Please check it out.
+              </Text>
+            </Box>
+            <Box>(づ｡◕‿‿◕｡)づ</Box>
           </ModalFooter>
         </ModalContent>
       </Modal>

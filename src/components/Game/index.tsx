@@ -67,7 +67,16 @@ export default function GamePanel() {
   };
 
   const handleSubmit = () => {
-    if (text.length !== 5) return;
+    if (text.length !== 5) {
+      toast({
+        title: "Please fill in the word",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "top",
+      });
+      return;
+    }
     if (!checker(text)) {
       toast({
         title: "Word not found",

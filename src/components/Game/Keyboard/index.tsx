@@ -1,7 +1,7 @@
 import { Box, Button, HStack, VStack, Center } from "@chakra-ui/react";
 import Key from "../Key";
 import type { Row } from "@/types";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { FiDelete } from "react-icons/fi";
 
 const firstRow = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
@@ -32,6 +32,22 @@ export default function Keyboard({
     }
     return "guessing";
   };
+
+  useEffect(() => {
+    function listener(e: KeyboardEvent) {
+      if (e.code === "Enter") {
+        onSubmit();
+      } else if (e.code === "Backspace") {
+        onDelete();
+      }
+      const key = e.key.toUpperCase();
+      if (key.length === 1 && key >= "A" && key <= "Z") onLetterClick(key);
+    }
+    window.addEventListener("keyup", listener);
+    return () => {
+      window.removeEventListener("keyup", listener);
+    };
+  });
 
   return (
     <VStack spacing={2}>

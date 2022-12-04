@@ -3,12 +3,13 @@ import Key from "./Key";
 import Keyboard from "./Keyboard";
 import { useState } from "react";
 import { useEffect } from "react";
-import * as randomSeed from "random-seed";
+import * as shuffleSeed from 'shuffle-seed'
 import data from "../../../data/arr.json";
 import { GameStates, Row } from "@/types";
 import GameResultModal from "../Modal/GameResultModal";
 // @ts-ignore
 import * as checker from "word-exists";
+import moment from 'moment-timezone'
 
 export default function GamePanel() {
   const [rows, setRows] = useState<Row[]>([]);
@@ -57,12 +58,8 @@ export default function GamePanel() {
   };
 
   const loadSolution = () => {
-    const random = randomSeed.create(new Date().toLocaleString("en-US", {
-      timeZone: "Asia/Ho_Chi_Minh"
-    }));
-    random.initState();
-    const index = random(data.length);
-    return data[index];
+    const time = moment.tz("Asia/Ho_Chi_Minh")
+    return shuffleSeed.shuffle(data, time.toString)[0]
   };
 
   const deleteChar = () => {

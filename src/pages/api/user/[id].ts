@@ -3,19 +3,19 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/lib/prisma";
 
 async function GET(req: NextApiRequest, res: NextApiResponse) {
-  const { id } = req.query
+  const { id } = req.query;
 
   const user = await prisma.user.findUnique({
-      where: {
-          id: id as string
-      }
-  })
+    where: {
+      id: id as string,
+    },
+  });
 
-res.status(200).json(user)
+  res.status(200).json(user);
 }
 
 async function POST(req: NextApiRequest, res: NextApiResponse) {
-  console.log('req.query', req.query)
+  console.log("req.query", req.query);
   const user = await prisma.user.update({
     where: {
       id: req.query.id as string,
@@ -35,9 +35,9 @@ export default async function handler(
   switch (req.method) {
     case "GET":
       GET(req, res);
-      break
+      break;
     case "POST":
       POST(req, res);
-      break
+      break;
   }
 }

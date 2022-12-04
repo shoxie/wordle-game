@@ -11,9 +11,9 @@ type Props = {
 };
 
 type ContextProps = {
-  isHard: boolean,
-  setHardMode: () => void,
-  setEasyMode: () => void,
+  isHard: boolean;
+  setHardMode: () => void;
+  setEasyMode: () => void;
 };
 
 const SettingsContext = createContext<ContextProps>({
@@ -26,11 +26,11 @@ export function SettingsProvider({ children }: Props) {
   const [isHard, setIsHard] = useState(false);
 
   function setHardMode() {
-    setIsHard(true)
+    setIsHard(true);
   }
 
   function setEasyMode() {
-    setIsHard(false)
+    setIsHard(false);
   }
 
   return (
@@ -38,7 +38,7 @@ export function SettingsProvider({ children }: Props) {
       value={{
         isHard,
         setHardMode,
-        setEasyMode
+        setEasyMode,
       }}
     >
       {children}

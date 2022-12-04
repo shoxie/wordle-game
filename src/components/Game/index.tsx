@@ -3,13 +3,13 @@ import Key from "./Key";
 import Keyboard from "./Keyboard";
 import { useState } from "react";
 import { useEffect } from "react";
-import * as shuffleSeed from 'shuffle-seed'
+import * as shuffleSeed from "shuffle-seed";
 import data from "../../../data/arr.json";
 import { GameStates, Row } from "@/types";
 import GameResultModal from "../Modal/GameResultModal";
 // @ts-ignore
 import * as checker from "word-exists";
-import moment from 'moment-timezone'
+import moment from "moment-timezone";
 
 export default function GamePanel() {
   const [rows, setRows] = useState<Row[]>([]);
@@ -58,8 +58,8 @@ export default function GamePanel() {
   };
 
   const loadSolution = () => {
-    const time = moment.tz("Asia/Ho_Chi_Minh")
-    return shuffleSeed.shuffle(data, time.toString)[0]
+    const time = moment.tz("Asia/Ho_Chi_Minh");
+    return shuffleSeed.shuffle(data, time.toString)[0];
   };
 
   const deleteChar = () => {
@@ -153,6 +153,7 @@ export default function GamePanel() {
           onSubmit={handleSubmit}
           rows={rows.slice(0, currentRowIndex)}
           onDelete={deleteChar}
+          onReset={handleReset}
         />
       </VStack>
       <GameResultModal gameState={gameState} resetGame={handleReset} />

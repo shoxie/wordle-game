@@ -10,23 +10,31 @@ import { headerHeightAtom } from "@/lib/atoms";
 import RankingModal from "../Modal/Ranking";
 
 export default function Header() {
-  const headerContainer = useRef<HTMLDivElement>(null)
-  const [, setHeaderHeight] = useAtom(headerHeightAtom)
+  const headerContainer = useRef<HTMLDivElement>(null);
+  const [, setHeaderHeight] = useAtom(headerHeightAtom);
 
   useEffect(() => {
-    if (!headerContainer.current) return
-    setHeaderHeight(headerContainer.current.clientHeight)
-  }, [headerContainer])
+    if (!headerContainer.current) return;
+    setHeaderHeight(headerContainer.current.clientHeight);
+  }, [headerContainer]);
 
   return (
-    <Box borderBottom="2px" borderColor={"white"} py={5} px={10} ref={headerContainer}>
+    <Box
+      borderBottom="2px"
+      borderColor={"white"}
+      py={5}
+      px={10}
+      ref={headerContainer}
+    >
       <HStack justify="space-between">
         <GuideModal />
         <Box>
-          <Text fontSize="2xl" fontWeight="bold">Wordie</Text>
+          <Text fontSize="2xl" fontWeight="bold">
+            Wordie
+          </Text>
         </Box>
         <HStack>
-        <RankingModal/>
+          <RankingModal />
           <SettingModal />
         </HStack>
       </HStack>

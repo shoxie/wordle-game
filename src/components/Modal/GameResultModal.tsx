@@ -40,7 +40,7 @@ export default function GameResultModal({
 
   useEffect(() => {
     setIsOpen(gameState !== "playing");
-    if (gameState === "win") mutation.mutate()
+    if (gameState === "win") mutation.mutate();
   }, [gameState]);
 
   useEffect(() => {

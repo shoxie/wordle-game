@@ -7,14 +7,14 @@ const styles = {
       color: mode("#575279", "#e0def4")(props),
       bg: mode("#faf4ed", "#232136")(props),
       transitionProperty: "background-color",
-      transitionDuration: "500ms"
+      transitionDuration: "500ms",
     },
   }),
 };
 
 const config = {
-  disableTransitionOnChange: false
-}
+  disableTransitionOnChange: false,
+};
 
 const components = {
   Drawer: {
@@ -31,13 +31,13 @@ const components = {
         bg: mode("#faf4ed", "#232136")(props),
       },
     }),
-  }
+  },
 };
 
 const theme = extendTheme({
   components,
   styles,
-  config
+  config,
 });
 
 export default theme;

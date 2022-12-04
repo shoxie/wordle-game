@@ -14,6 +14,7 @@ type Props = {
   onLetterClick: (letter: string) => void;
   onSubmit: () => void;
   onDelete: () => void;
+  onReset: () => void;
   rows: Row[];
 };
 
@@ -22,6 +23,7 @@ export default function Keyboard({
   onSubmit,
   rows,
   onDelete,
+  onReset,
 }: Props) {
   const cells = useMemo(() => rows.flat(), [rows]);
 
@@ -129,6 +131,28 @@ export default function Keyboard({
             <FiDelete />
           </Center>
         </Button>
+        <Button
+          border="2px"
+          borderColor={"white"}
+          display={{
+            base: "none",
+            lg: "block",
+          }}
+          w={{
+            base: 6,
+            sm: 10,
+            lg: 16,
+          }}
+          h={{
+            base: 6,
+            sm: 10,
+            lg: 16,
+          }}
+          variant="unstyled"
+          onClick={onReset}
+        >
+          <Center h="full">Reset</Center>
+        </Button>
       </HStack>
       <HStack
         display={{
@@ -150,6 +174,7 @@ export default function Keyboard({
           }}
           variant="unstyled"
           onClick={onSubmit}
+          fontSize="xs"
         >
           Enter
         </Button>
@@ -172,6 +197,29 @@ export default function Keyboard({
           <Center h="full">
             <FiDelete />
           </Center>
+        </Button>
+        <Button
+          border="2px"
+          borderColor={"white"}
+          display={{
+            base: "none",
+            lg: "block",
+          }}
+          w={{
+            base: 6,
+            sm: 10,
+            lg: 16,
+          }}
+          h={{
+            base: 6,
+            sm: 10,
+            lg: 16,
+          }}
+          variant="unstyled"
+          onClick={onReset}
+          fontSize="xs"
+        >
+          <Center h="full">Reset</Center>
         </Button>
       </HStack>
     </VStack>

@@ -20,7 +20,7 @@ interface Cell {
 export type Row = Cell[];
 
 export type User = {
-  id: string
-  solved: number
-  name: string
-}
+  id: string;
+  solved: number;
+  name: string;
+};

@@ -17,19 +17,19 @@ async function GET(req: NextApiRequest, res: NextApiResponse) {
   res.status(200).json(user);
 }
 async function POST(req: NextApiRequest, res: NextApiResponse) {
-    const { id } = req.body
+  const { id } = req.body;
 
-    const result = await prisma.user.update({
-        where: {
-            id
-        },
-        data: {
-            solved: {
-                increment: 1
-            }
-        }
-    })
-    res.status(200).json(result)
+  const result = await prisma.user.update({
+    where: {
+      id,
+    },
+    data: {
+      solved: {
+        increment: 1,
+      },
+    },
+  });
+  res.status(200).json(result);
 }
 
 export default async function handler(

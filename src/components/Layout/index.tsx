@@ -10,9 +10,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
-      <Box as={"main"}
-      transition="all"
-      transitionDuration="500ms"
+      <Box
+        as={"main"}
+        transition="all"
+        transitionDuration="500ms"
         style={{
           height: `calc(100vh - ${headerHeight}px)`,
         }}

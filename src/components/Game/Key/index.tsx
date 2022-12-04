@@ -46,7 +46,7 @@ export default function Key({ value, status, onLetterClick, type }: Props) {
       w={
         type === "keyboard"
           ? {
-            base: 6,
+              base: 6,
               sm: 10,
               lg: 16,
             }
@@ -55,7 +55,7 @@ export default function Key({ value, status, onLetterClick, type }: Props) {
       h={
         type === "keyboard"
           ? {
-            base: 6,
+              base: 6,
               sm: 10,
               lg: 16,
             }
@@ -66,10 +66,13 @@ export default function Key({ value, status, onLetterClick, type }: Props) {
       transitionDuration="500ms"
     >
       <Center h="full">
-        <Text fontWeight={"bold"} fontSize={{
-          base: "xs",
-          lg: "xl"
-        }}>
+        <Text
+          fontWeight={"bold"}
+          fontSize={{
+            base: "xs",
+            lg: "xl",
+          }}
+        >
           {value}
         </Text>
       </Center>

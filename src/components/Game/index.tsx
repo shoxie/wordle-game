@@ -57,7 +57,9 @@ export default function GamePanel() {
   };
 
   const loadSolution = () => {
-    const random = randomSeed.create(Date.now().toString());
+    const random = randomSeed.create(new Date().toLocaleString("en-US", {
+      timeZone: "Asia/Ho_Chi_Minh"
+    }));
     random.initState();
     const index = random(data.length);
     return data[index];

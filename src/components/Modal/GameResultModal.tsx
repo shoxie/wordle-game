@@ -19,6 +19,9 @@ import { useEffect, useState } from "react";
 import { SettingsIcon } from "@chakra-ui/icons";
 import { Switch } from "@chakra-ui/react";
 import { GameStates } from "@/types";
+import { useMutation } from "react-query";
+import axios from "axios";
+import { useUser } from "@/lib/useUser";
 
 export default function GameResultModal({
   gameState,
@@ -29,10 +32,16 @@ export default function GameResultModal({
 }) {
   const [isOpen, setIsOpen] = useState(true);
   const [countdown, setCountdown] = useState("");
+  const user = useUser();
+
+  const mutation = useMutation(() => {
+    return axios.post(`/api/rank`, { id: user.id });
+  });
 
   useEffect(() => {
     setIsOpen(gameState !== "playing");
-  }, []);
+    if (gameState === "win") mutation.mutate()
+  }, [gameState]);
 
   useEffect(() => {
     let interval: NodeJS.Timer;

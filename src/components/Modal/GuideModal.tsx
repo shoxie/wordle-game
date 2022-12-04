@@ -13,6 +13,8 @@ import {
   Text,
   useColorMode,
   HStack,
+  Center,
+  Link,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { InfoIcon } from "@chakra-ui/icons";
@@ -79,7 +81,9 @@ export default function GuideModal() {
                   type="cell"
                 />
               </HStack>
-              <Text textAlign={"center"}>The letter A is in the word and in the correct spot.</Text>
+              <Text textAlign={"center"}>
+                The letter A is in the word and in the correct spot.
+              </Text>
             </Box>
             <Box py={3}>
               <HStack spacing={2} justify="center">
@@ -114,7 +118,9 @@ export default function GuideModal() {
                   type="cell"
                 />
               </HStack>
-              <Text textAlign={"center"}>The letter R is in the word but in the wrong spot.</Text>
+              <Text textAlign={"center"}>
+                The letter R is in the word but in the wrong spot.
+              </Text>
             </Box>
             <Box py={3}>
               <HStack spacing={2} justify="center">
@@ -149,9 +155,25 @@ export default function GuideModal() {
                   type="cell"
                 />
               </HStack>
-              <Text textAlign={"center"}>The letter E is not in the word in any spot.</Text>
+              <Text textAlign={"center"}>
+                The letter E is not in the word in any spot.
+              </Text>
             </Box>
           </ModalBody>
+          <ModalFooter>
+            <Center w="full">
+              <Text>
+                This project is open-source. Find the code{" "}
+                <Link
+                  href="https://github.com/shoxie/wordle-game"
+                  textDecoration={"underline"}
+                  fontWeight={"bold"}
+                >
+                  here
+                </Link>
+              </Text>
+            </Center>
+          </ModalFooter>
         </ModalContent>
       </Modal>
     </>

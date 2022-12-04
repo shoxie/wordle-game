@@ -9,9 +9,6 @@ import { GameStates, Row } from "@/types";
 import GameResultModal from "../Modal/GameResultModal";
 // @ts-ignore
 import * as checker from "word-exists";
-import { createUser, getUserData } from "@/lib/api";
-import { useAtom } from "jotai";
-import { userAtom } from "@/lib/atoms";
 
 export default function GamePanel() {
   const [rows, setRows] = useState<Row[]>([]);
@@ -21,7 +18,6 @@ export default function GamePanel() {
   const [gameState, setGameState] =
     useState<keyof typeof GameStates>("playing");
   const toast = useToast();
-  const [,setUser] = useAtom(userAtom)
 
   const handleLetterClick = (letter: string) => {
     if (text.length > 4) return;
@@ -84,11 +80,11 @@ export default function GamePanel() {
       return;
     }
     getStatuses();
-    if (currentRowIndex === 5 && text === solution) {
+    if (text === solution.toUpperCase()) {
       setGameState("win");
       return;
     }
-    if (currentRowIndex === 5 && text !== solution) {
+    if (currentRowIndex === 5 && text !== solution.toUpperCase()) {
       setGameState("lose");
       return;
     }
@@ -125,23 +121,6 @@ export default function GamePanel() {
     }
     setRows([...rows]);
   }, [text]);
-
-  useEffect(() => {
-    if (!localStorage) return;
-    checkData();
-    async function checkData() {
-      const localData = localStorage.getItem("userData");
-      const data = localData ? JSON.parse(localData) : null;
-
-      if (!data) {
-        const user = await createUser();
-        localStorage.setItem("userData", JSON.stringify(user));
-      } else {
-        const user = await getUserData(data.id)
-        setUser(user)
-      }
-    }
-  }, []);
 
   return (
     <>

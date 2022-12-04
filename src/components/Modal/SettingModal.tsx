@@ -18,23 +18,22 @@ import { useSetting } from "@/context";
 import { useEffect, useState } from "react";
 import { SettingsIcon } from "@chakra-ui/icons";
 import { Switch } from "@chakra-ui/react";
-import { useAtom } from "jotai";
-import { userAtom } from "@/lib/atoms";
 import useDebounce from "@/lib/useDebounce";
 import { useMutation } from "react-query";
 import axios from "axios";
+import { useUser } from "@/lib/useUser";
 
 export default function SettingModal() {
   const { isHard, setEasyMode, setHardMode } = useSetting();
   const { toggleColorMode, colorMode } = useColorMode();
   const [isOpen, setIsOpen] = useState(false);
-  const [name, setName] = useState("");
-  const [user] = useAtom(userAtom);
-  const debounceName = useDebounce(name, 600)
+  const user = useUser();
+  const [name, setName] = useState(user.name);
+  const debounceName = useDebounce(name, 600);
 
   const mutation = useMutation(() => {
-    return axios.post(`/api/user/${user?.id}`, { name: debounceName})
-  })
+    return axios.post(`/api/user/${user.id}`, { name: debounceName });
+  });
 
   function handleGameModeChange() {
     isHard ? setEasyMode() : setHardMode();
@@ -47,7 +46,14 @@ export default function SettingModal() {
 
   useEffect(() => {
     if (!user) return;
-    mutation.mutate()
+    if (!debounceName) return;
+    mutation.mutate();
+    const existUser = localStorage.getItem("userData");
+    if (!existUser) return;
+    localStorage.setItem(
+      "userData",
+      JSON.stringify({ ...JSON.parse(existUser), name: debounceName })
+    );
   }, [debounceName]);
 
   return (

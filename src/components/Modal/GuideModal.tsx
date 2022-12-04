@@ -45,7 +45,7 @@ export default function GuideModal() {
               <Text>
                 Welcome,{" "}
                 <Highlight
-                  query={"spotlight"}
+                  query={user.name.length > 0 ? user.name : "Stranger"}
                   styles={{ px: "2", py: "1", rounded: "full", bg: "red.100" }}
                 >
                   {user.name.length > 0 ? user.name : "Stranger"}

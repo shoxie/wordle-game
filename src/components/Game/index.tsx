@@ -1,15 +1,14 @@
-import { HStack, VStack, useToast } from "@chakra-ui/react";
-import Key from "./Key";
-import Keyboard from "./Keyboard";
-import { useState } from "react";
-import { useEffect } from "react";
+import { GameStates, Row } from "@/types";
+import { HStack, useToast, VStack } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import * as shuffleSeed from "shuffle-seed";
 import data from "../../../data/arr.json";
-import { GameStates, Row } from "@/types";
 import GameResultModal from "../Modal/GameResultModal";
+import Key from "./Key";
+import Keyboard from "./Keyboard";
 // @ts-ignore
-import * as checker from "word-exists";
 import moment from "moment-timezone";
+import * as checker from "word-exists";
 
 export default function GamePanel() {
   const [rows, setRows] = useState<Row[]>([]);

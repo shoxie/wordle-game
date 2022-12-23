@@ -1,17 +1,14 @@
-import "../styles/globals.css";
 import Layout from "@/components/Layout";
 import { SettingsProvider } from "@/context";
 import { ChakraProvider } from "@chakra-ui/react";
 import { DefaultSeo } from "next-seo";
 import type { AppProps } from "next/app";
-import theme from "../lib/theme";
 import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
+    QueryClient,
+    QueryClientProvider
 } from "react-query";
+import theme from "../lib/theme";
+import "../styles/globals.css";
 const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {

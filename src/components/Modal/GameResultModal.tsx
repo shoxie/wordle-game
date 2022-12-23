@@ -1,27 +1,12 @@
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
-  FormControl,
-  FormLabel,
-  Box,
-  Text,
-  useColorMode,
-  HStack,
-} from "@chakra-ui/react";
-import { useSetting } from "@/context";
-import { useEffect, useState } from "react";
-import { SettingsIcon } from "@chakra-ui/icons";
-import { Switch } from "@chakra-ui/react";
-import { GameStates } from "@/types";
-import { useMutation } from "react-query";
-import axios from "axios";
 import { useUser } from "@/lib/useUser";
+import { GameStates } from "@/types";
+import {
+    Button, HStack, Modal, ModalBody,
+    ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text
+} from "@chakra-ui/react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useMutation } from "react-query";
 
 export default function GameResultModal({
   gameState,

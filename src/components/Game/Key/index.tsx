@@ -1,4 +1,4 @@
-import { Box, Text, Center } from "@chakra-ui/react";
+import { Box, Center, Text } from "@chakra-ui/react";
 
 enum Statuses {
   "absent",

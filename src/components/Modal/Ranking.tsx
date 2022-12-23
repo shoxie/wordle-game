@@ -1,22 +1,22 @@
+import { getRanking } from "@/lib/api";
+import { userAtom } from "@/lib/atoms";
 import type { User } from "@/types";
 import {
-  Button,
-  HStack,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalHeader,
-  ModalOverlay,
-  Text,
-  VStack,
+    Button,
+    HStack,
+    Modal,
+    ModalBody,
+    ModalCloseButton,
+    ModalContent,
+    ModalHeader,
+    ModalOverlay,
+    Text,
+    VStack
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { getRanking } from "@/lib/api";
-import { useQuery } from "react-query";
 import { useAtom } from "jotai";
-import { userAtom } from "@/lib/atoms";
+import { useState } from "react";
 import { BsBarChartLineFill } from "react-icons/bs";
+import { useQuery } from "react-query";
 
 export default function RankingModal() {
   const [isOpen, setIsOpen] = useState(false);

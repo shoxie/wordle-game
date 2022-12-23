@@ -1,27 +1,17 @@
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
-  FormControl,
-  FormLabel,
-  Box,
-  Text,
-  useColorMode,
-  Input,
-} from "@chakra-ui/react";
 import { useSetting } from "@/context";
-import { useEffect, useState } from "react";
-import { SettingsIcon } from "@chakra-ui/icons";
-import { Switch } from "@chakra-ui/react";
 import useDebounce from "@/lib/useDebounce";
-import { useMutation } from "react-query";
-import axios from "axios";
 import { useUser } from "@/lib/useUser";
+import { SettingsIcon } from "@chakra-ui/icons";
+import {
+    Box, FormControl,
+    FormLabel, Input, Modal, ModalBody,
+    ModalCloseButton, ModalContent,
+    ModalHeader, ModalOverlay, Switch, Text,
+    useColorMode
+} from "@chakra-ui/react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useMutation } from "react-query";
 
 export default function SettingModal() {
   const { isHard, setEasyMode, setHardMode } = useSetting();

@@ -1,9 +1,7 @@
 import { useUser } from "@/lib/useUser";
 import { InfoIcon } from "@chakra-ui/icons";
 import {
-  Box,
-  Center,
-  Highlight,
+  Box, Highlight,
   HStack,
   Link,
   Modal,
@@ -13,7 +11,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  Text,
+  Text
 } from "@chakra-ui/react";
 import { useState } from "react";
 import Key from "../Game/Key";

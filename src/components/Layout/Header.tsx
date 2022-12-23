@@ -1,13 +1,10 @@
-import { Box, Container, HStack, Text, Button } from "@chakra-ui/react";
-import { useSetting } from "@/context";
-import { InfoIcon } from "@chakra-ui/icons";
-import { useRef, useEffect } from "react";
-import SettingModal from "../Modal/SettingModal";
-import { useColorMode } from "@chakra-ui/react";
-import GuideModal from "../Modal/GuideModal";
-import { useAtom } from "jotai";
 import { headerHeightAtom } from "@/lib/atoms";
+import { Box, HStack, Text } from "@chakra-ui/react";
+import { useAtom } from "jotai";
+import { useEffect, useRef } from "react";
+import GuideModal from "../Modal/GuideModal";
 import RankingModal from "../Modal/Ranking";
+import SettingModal from "../Modal/SettingModal";
 
 export default function Header() {
   const headerContainer = useRef<HTMLDivElement>(null);
@@ -27,10 +24,12 @@ export default function Header() {
       ref={headerContainer}
     >
       <HStack justify="space-between">
-        <GuideModal />
+        <Box>
+          <GuideModal />
+        </Box>
         <Box>
           <Text fontSize="2xl" fontWeight="bold">
-            Wordie
+            Wordle
           </Text>
         </Box>
         <HStack>

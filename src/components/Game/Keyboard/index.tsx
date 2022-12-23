@@ -1,8 +1,8 @@
-import { Box, Button, HStack, VStack, Center } from "@chakra-ui/react";
-import Key from "../Key";
 import type { Row } from "@/types";
+import { Button, Center, HStack, VStack } from "@chakra-ui/react";
 import { useEffect, useMemo } from "react";
 import { FiDelete } from "react-icons/fi";
+import Key from "../Key";
 
 const firstRow = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
 

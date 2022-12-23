@@ -18,7 +18,6 @@ export function useUser() {
       const data = localData ? JSON.parse(localData) : null;
 
       if (!data) {
-        console.log("wtf");
         // const newUser = await createUser();
         // localStorage.setItem("userData", JSON.stringify(newUser));
         // setUser(newUser)

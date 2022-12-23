@@ -27,10 +27,12 @@ export default function Header() {
       ref={headerContainer}
     >
       <HStack justify="space-between">
-        <GuideModal />
+        <Box>
+          <GuideModal />
+        </Box>
         <Box>
           <Text fontSize="2xl" fontWeight="bold">
-            Wordie
+            Wordle
           </Text>
         </Box>
         <HStack>

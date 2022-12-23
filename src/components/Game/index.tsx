@@ -6,8 +6,8 @@ import data from "../../../data/arr.json";
 import GameResultModal from "../Modal/GameResultModal";
 import Key from "./Key";
 import Keyboard from "./Keyboard";
-// @ts-ignore
 import moment from "moment-timezone";
+// @ts-ignore
 import * as checker from "word-exists";
 
 export default function GamePanel() {
